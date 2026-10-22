@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const char * modes[] = {"ai", "gaming"};
+const char * modes[] = {"ai", "gaming", "status"};
 enum mode {MODE_AI, MODE_GAMING, MODE_STATUS, MODE_INVALID};
 
 enum mode parse_mode(const char * s) {
@@ -12,16 +12,16 @@ enum mode parse_mode(const char * s) {
             return (enum mode)i;
         }
     }
-    if (strcmp(s,"status") == 0) {}
+
     return MODE_INVALID;
 }
 
 int main(int argc, const char * argv[]) {
-    if (argc != 2) {
+    if (argc != 3) {
         cout << "Usage: <mode>" << endl;
         exit(1);
     }
-
+    cout << endl;
     switch (parse_mode(argv[1])) {
         case MODE_AI:
             cout << "TO-DO: AI";
